@@ -27,7 +27,7 @@ angular.module('starter', ['ionic'])
     showDelete: false
   };
   
-  $scope.star = function(item) {
+  $scope.toggleStar = function(item) {
     item.star = !item.star;
   };
   
