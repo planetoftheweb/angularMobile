@@ -20,17 +20,15 @@ angular.module('starter', ['ionic'])
 
 .controller('ListController', ['$scope', '$http', function($scope, $http) {
   $http.get('js/data.json').success(function(data) {
-    $scope.artists = data;
+    $scope.artists = data.artists;
+    $scope.artists = data.artists;
 
   $scope.data = {
     showDelete: false
   };
   
-  $scope.edit = function(item) {
-    alert('Edit Item: ' + item.id);
-  };
-  $scope.share = function(item) {
-    alert('Share Item: ' + item.id);
+  $scope.star = function(item) {
+    item.star = !item.star;
   };
   
   $scope.moveItem = function(item, fromIndex, toIndex) {
