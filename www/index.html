@@ -33,15 +33,17 @@
           <input type="search" placeholder="Search">
         </label>
       </div>
-      <ion-content class="has-subheader">
+      <ion-content ng-controller="ListController" 
+        class="has-subheader">
         <ion-list>
-          <ion-item class="item-thumbnail-left 
+          <ion-item ng-repeat='item in artists'
+          class="item-thumbnail-left 
             item-text-wrap">
-            <img src="http://placehold.it/100x100"
-              alt="Photo">
-            <h2>Name</h2>
-            <h3>Reknown</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus a nobis, corporis quos fuga, ex incidunt nihil vero architecto ratione quae quasi? Necessitatibus assumenda rem dolore suscipit quaerat. Enim, aperiam.</p>
+            <img src="img/{{item.shortname}}_tn.jpg"
+              alt="{{ item.name }} Photo">
+            <h2>{{item.name}}</h2>
+            <h3>{{item.reknown}}</h3>
+            <p>{{item.bio}}</p>
           </ion-item>
         </ion-list>
       </ion-content>
