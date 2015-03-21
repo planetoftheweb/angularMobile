@@ -31,8 +31,7 @@ angular.module('starter', ['ionic'])
       url: "/home",
       views: {
         'home-tab': {
-          templateUrl: "templates/home.html",
-          controller: 'HomeTabCtrl'
+          templateUrl: "templates/home.html"
         }
       }
     })
@@ -45,6 +44,17 @@ angular.module('starter', ['ionic'])
         }
       }
     })
+
+    .state('tabs.detail', {
+      url: "/list/:aId",
+      views: {
+        'list-tab': {
+          templateUrl: "templates/detail.html",
+          controller: 'ListController'
+        }
+      }
+    })
+
     .state('tabs.calendar', {
       url: "/calendar",
       views: {
@@ -66,15 +76,19 @@ angular.module('starter', ['ionic'])
 })
 
 
-.controller('HomeTabCtrl', function($scope) {
-})
-
 .controller('CalendarController', ['$scope', '$http', function($scope, $http) {
   $http.get('js/data.json').success(function(data) {
     $scope.calendar = data.calendar;
 
   $scope.toggleStar = function(item) {
     item.star = !item.star;
+  };
+
+  $scope.doRefresh = function() {
+    $http.get('js/data.json').success(function(data) {
+      $scope.artists = data.artists;
+        $scope.$broadcast('scroll.refreshComplete');    
+    });
   };
 
   $scope.onItemDelete = function(dayIndex, item) {
@@ -86,14 +100,21 @@ angular.module('starter', ['ionic'])
 }])
 
 
-
-.controller('ListController', ['$scope', '$http', function($scope, $http) {
+.controller('ListController', ['$scope', '$http', '$state', function($scope, $http, $state) {
   $http.get('js/data.json').success(function(data) {
     $scope.artists = data.artists;
     $scope.data = { showDelete: false };
-    
+    $scope.whichartist = $state.params.aId;
+
     $scope.toggleStar = function(item) {
       item.star = !item.star;
+    };
+
+    $scope.doRefresh = function() {
+      $http.get('js/data.json').success(function(data) {
+        $scope.artists = data.artists;
+          $scope.$broadcast('scroll.refreshComplete');    
+      });
     };
     
     $scope.moveItem = function(item, fromIndex, toIndex) {

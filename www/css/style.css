@@ -1,4 +1,8 @@
 /* Empty. Add your own CSS if you like */
+body {
+  cursor: url('http://ionicframework.com/img/finger.png'), auto;
+}
+
 .star>.item-content {
 	background-color: #FDF6E4 !important;
 	font-size: 50px;
@@ -35,6 +39,10 @@
 .bar-positive, .tabs-positive>.tabs {
 	background-color: #417D9A !important;
 	border-color: #417D9A !important;
+}
+
+.item-thumbnail-left img {
+	border-radius: 10px;
 }
 
 .item h3 {

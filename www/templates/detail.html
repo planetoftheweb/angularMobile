@@ -1,0 +1,12 @@
+<ion-view view-title="{{artists[whichartist].name}}">
+  <ion-content>
+    <ion-list class="list-inset">
+      <ion-item class="item-text-wrap">
+        <img ng-src="img/{{artists[whichartist].shortname}}_tn.jpg" alt="Photo of {{artists[whichartist].name}}">
+        <h2>{{artists[whichartist].name}}</h2>
+        <h3>{{artists[whichartist].reknown}}</h3>
+        <p>{{artists[whichartist].bio }}</p>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

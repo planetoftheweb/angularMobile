@@ -18,15 +18,17 @@
   </div>
 
   <ion-content class="has-subheader" id="content">
+    <ion-refresher on-refresh="doRefresh()"></ion-refresher>
     <ion-list show-delete="data.showDelete" show-reorder="data.showReorder">
       <ion-item ng-class="{'star': item.star}"
-      class="item-thumbnail-left item-text-wrap item-icon-right"
-      ng-repeat="item in artists | filter: query"
-         href="#" ng-class="{{item.class}}">
+        class="item-thumbnail-left item-text-wrap item-icon-right"
+        ng-repeat="(index, item) in artists | filter: query"
+         href="#/tab/list/{{index}}" ng-class="{{item.class}}">
         <img ng-src="img/{{item.shortname}}_tn.jpg" alt="Photo of {{item.name}}">
         <h2>{{item.name}}</h2>
         <h3>{{item.reknown}}</h3>
-        <p>{{ item.bio }}</p>
+        <p>{{item.bio | limitTo: 100}}
+        {{ item.bio.length > 100 ? '&hellip;' : '' }}</p>
         <button class="button button-clear icon ion-star button-assertive" ng-click="toggleStar(item)" ng-show="item.star"></i></button>
         <ion-delete-button class="ion-minus-circled" ng-click="onItemDelete(item)"></ion-delete-button>
         <ion-option-button class="button-dark" ng-click="toggleStar(item)"><i class="icon ion-star"></i></ion-option-button>
