@@ -1,0 +1,37 @@
+<ion-view view-title="Calendar">
+
+<div class="bar bar-subheader item-input-inset bar-light">
+  <label class="item-input-wrapper">
+    <i class="icon ion-search placeholder-icon"></i>
+    <input type="search" placeholder="Search" ng-model="query">
+  </label>
+</div>
+<ion-content class="has-subheader" id="content">
+
+  <div class="day" ng-repeat="(dayIndex, day) in calendar">
+  	<div class="item item-divider item-divider-calm">{{day.weekday}}</div>
+  	<div ng-show="day.title" class="item item-list item-text-wrap dayhighlight">
+  		<h2>{{day.title}}</h2>
+  		{{day.description}}
+  	</div>
+
+	  <ion-list show-delete="data.showDelete" show-reorder="data.showReorder">
+	    <ion-item ng-class="{'item-avatar': item.shortname, 'star': item.star}" 
+	    	class="item-text-wrap item-icon-right"
+	    	ng-repeat="item in day.schedule | filter: query" href="#">
+      	<img ng-show="item.shortname" ng-src="img/{{item.shortname}}_tn.jpg" alt="{{item.name}} photo">
+	      <h2>{{item.time}}</h2>
+	      <h3>{{item.title}}</h3>
+	      <h4> {{ item.artist ? ' with ' + item.artist : ''}}</h4>
+	      <p>{{ item.description }}</p>
+	      <button class="button button-clear icon ion-star button-assertive" ng-click="toggleStar(item)" ng-show="item.star"></i></button>
+	      <ion-delete-button class="ion-minus-circled" ng-click="onItemDelete(dayIndex,item)"></ion-delete-button>
+	      <ion-option-button class="button-calm" ng-click="toggleStar(item)"><i class="icon ion-star"></i></ion-option-button>
+	      <ion-option-button class="button-assertive" ng-click="onItemDelete(dayIndex,item)"><i class="icon ion-trash-a"></i></ion-option-button>
+	      <ion-reorder-button class="ion-navicon" on-reorder="moveItem(item, $fromIndex, $toIndex)"></ion-reorder-button>
+	    </ion-item>
+	  </ion-list>
+  </div>
+
+</ion-content>
+</ion-view>

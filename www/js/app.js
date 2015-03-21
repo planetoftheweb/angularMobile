@@ -18,9 +18,77 @@ angular.module('starter', ['ionic'])
   });
 })
 
+
+.config(function($stateProvider, $urlRouterProvider) {
+
+  $stateProvider
+    .state('tabs', {
+      url: "/tab",
+      abstract: true,
+      templateUrl: "templates/tabs.html"
+    })
+    .state('tabs.home', {
+      url: "/home",
+      views: {
+        'home-tab': {
+          templateUrl: "templates/home.html",
+          controller: 'HomeTabCtrl'
+        }
+      }
+    })
+    .state('tabs.list', {
+      url: "/list",
+      views: {
+        'list-tab': {
+          templateUrl: "templates/list.html",
+          controller: 'ListController'
+        }
+      }
+    })
+    .state('tabs.calendar', {
+      url: "/calendar",
+      views: {
+        'calendar-tab': {
+          templateUrl: "templates/calendar.html",
+          controller: 'CalendarController'
+        }
+      }
+    })
+    .state('tabs.about', {
+      url: "/about",
+      views: {
+        'about-tab': {
+          templateUrl: "templates/about.html"
+        }
+      }
+    });
+    $urlRouterProvider.otherwise("/tab/home");
+})
+
+
+.controller('HomeTabCtrl', function($scope) {
+})
+
+.controller('CalendarController', ['$scope', '$http', function($scope, $http) {
+  $http.get('js/data.json').success(function(data) {
+    $scope.calendar = data.calendar;
+
+  $scope.toggleStar = function(item) {
+    item.star = !item.star;
+  };
+
+  $scope.onItemDelete = function(dayIndex, item) {
+    //console.log(day.schedule.indexOf(item));
+    $scope.calendar[dayIndex].schedule.splice($scope.calendar[dayIndex].schedule.indexOf(item), 1);
+  };
+
+  });
+}])
+
+
+
 .controller('ListController', ['$scope', '$http', function($scope, $http) {
   $http.get('js/data.json').success(function(data) {
-    $scope.artists = data.artists;
     $scope.artists = data.artists;
 
   $scope.data = {
