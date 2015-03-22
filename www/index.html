@@ -22,12 +22,9 @@
     <script src="js/app.js"></script>
   </head>
   <body ng-app="starter">
-    <ion-pane ng-controller="ListController">
+    <ion-pane>
       <ion-header-bar class="bar-dark">
         <h2 class="title">Artist List</h2>
-        <button 
-        class="button button-icon ion-navicon" 
-        ng-click="data.showReorder=!data.showReorder"></button>
       </ion-header-bar>
       <div class="bar bar-subheader 
         item-input-inset bar-light">
@@ -36,8 +33,9 @@
           <input type="search" ng-model="query" placeholder="Search">
         </label>
       </div>
-      <ion-content class="has-subheader">
-        <ion-list show-reorder="data.showReorder">
+      <ion-content ng-controller="ListController" 
+        class="has-subheader">
+        <ion-list>
           <ion-item 
           ng-repeat='item in artists | filter: query'
           class="item-thumbnail-left 
@@ -48,7 +46,6 @@
             <h3>{{item.reknown}}</h3>
             <p>{{item.bio | limitTo: 100}}
             {{ item.bio.length > 150 ? '&hellip;' : '' }}</p>
-            <ion-reorder-button class="ion-navicon">
           </ion-item>
         </ion-list>
       </ion-content>
