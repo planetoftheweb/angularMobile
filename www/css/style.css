@@ -1,1 +1,4 @@
 /* Empty. Add your own CSS if you like */
+.star>.item-content {
+  background-color: #EEE8D6 !important;
+}

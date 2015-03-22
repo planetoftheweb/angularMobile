@@ -46,16 +46,23 @@
         <ion-list 
           show-delete="data.showDelete"
           show-reorder="data.showReorder">
-          <ion-item 
+          <ion-item ng-class="{'star': item.star}" 
           ng-repeat='item in artists | filter: query'
-          class="item-thumbnail-left 
+          class="item-thumbnail-left item-icon-right
             item-text-wrap">
-            <img src="img/{{item.shortname}}_tn.jpg"
+            <img ng-src="img/{{item.shortname}}_tn.jpg"
               alt="{{ item.name }} Photo">
             <h2>{{item.name}}</h2>
             <h3>{{item.reknown}}</h3>
             <p>{{item.bio | limitTo: 100}}
             {{ item.bio.length > 150 ? '&hellip;' : '' }}</p>
+            <button class="button button-clear icon ion-star button-assertive"
+              ng-click="toggleStar(item)"
+              ng-show="item.star"></button>
+            <ion-option-button class="button-dark"
+              ng-click="toggleStar(item)">
+              <i class="icon ion-star"></i>
+            </ion-option-button>
             <ion-delete-button class="ion-minus-circled" ng-click="onItemDelete(item)">
             </ion-delete-button>
             <ion-reorder-button class="ion-navicon"
