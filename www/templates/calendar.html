@@ -30,6 +30,9 @@
       <h4>{{ item.artist ? ' with ' + item.artist : ''}}</h4>
       <p>{{ item.description }}</p>
 
+      <button class="button button-clear icon ion-star button-assertive" ng-click="toggleStar(item)" ng-show="item.star"></button>
+      <ion-option-button class="button-calm" ng-click="toggleStar(item)"><i class="icon ion-star"></i></ion-option-button>
+      <ion-option-button class="button-assertive" ng-click="onItemDelete(dayIndex, item)"><i class="icon ion-trash-a"></i></ion-option-button>
     </ion-item>
   </ion-list>
 </div><!-- repeat days -->
