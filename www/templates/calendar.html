@@ -17,6 +17,21 @@
     <h2>{{day.title}}</h2>
     {{day.description}}
   </div><!-- day title -->
+  
+  <ion-list>
+    <ion-item ng-class="{'item-avatar':item.shortname, 'star': item.star}"
+    class="item-text-wrap item-icon-right"
+    ng-repeat="item in day.schedule | filter: query"
+    href="#">
+
+      <img ng-show="item.shortname" ng-src="img/{{item.shortname}}_tn.jpg" alt="{{item.name}} Photo">
+      <h2>{{item.time}}</h2>
+      <h3>{{item.title}}</h3>
+      <h4>{{ item.artist ? ' with ' + item.artist : ''}}</h4>
+      <p>{{ item.description }}</p>
+
+    </ion-item>
+  </ion-list>
 </div><!-- repeat days -->
 </ion-content>
 </ion-view>
