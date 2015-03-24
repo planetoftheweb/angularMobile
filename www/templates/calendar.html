@@ -1,0 +1,22 @@
+<ion-view view-title="Calendar">
+
+<div class="bar bar-subheader 
+  item-input-inset bar-light">
+  <label class="item-input-wrapper">
+    <i class="icon ion-search placeholder-icon"></i>
+    <input type="search" ng-model="query" placeholder="Search">
+  </label>
+</div>
+
+<ion-content class="has-subheader">
+<div class="day" ng-repeat="(dayIndex, day) in calendar">
+  <div class="item item-divider item-divider-calm">
+    {{day.weekday}}
+  </div><!-- item divider -->
+  <div ng-show="day.title" class="item item-list item-text-wrap dayhighlight">
+    <h2>{{day.title}}</h2>
+    {{day.description}}
+  </div><!-- day title -->
+</div><!-- repeat days -->
+</ion-content>
+</ion-view>
