@@ -1,6 +1,6 @@
 # Building a Mobile App with AngularJS and Ionic
 ![Building a Mobile App with AngularJS and Ionic](hero.png)
-This is the repository for my course, Building a Mobile App with AngularJS and Ionic](http://www.lynda.com/AngularJS-tutorials/Building-Mobile-App-AngularJS-Ionic/368920-2.html). The full course is available at [lynda.com](http://lynda.com).
+This is the repository for my course, [Building a Mobile App with AngularJS and Ionic](http://www.lynda.com/AngularJS-tutorials/Building-Mobile-App-AngularJS-Ionic/368920-2.html). The full course is available at [lynda.com](http://lynda.com).
 
 ## Course Description
 Creating hybrid mobile applications is a great way to leverage your knowledge of web languages like HTML5, CSS, and JavaScript. Modern frameworks such as AngularJS and Ionic make it easier with pre-built templates and components. In this course, staff author Ray Villalobos shows how to install the Ionic framework and set up a development environment suitable for building web-based apps. He reviews the core Ionic components: prebuilt, easy-to-use features such as buttons, lists, tabs, and forms. Then Ray shows how to combine these components with Angular.js models, views, and controllers to build a single page app with sliders, pull-to-refresh functionality, and search. The training culminates in building a multi-page app, which you'll learn how to customize with CSS.
