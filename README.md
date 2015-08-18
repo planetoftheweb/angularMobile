@@ -26,6 +26,7 @@ This repository has branches for each of the videos in the course. You can use t
 	- [gulp](http://gulpjs.com/)
 1. Clone this repository into your local machine using the terminal (mac) or Gitbash (PC) `> git clone https://github.com/planetoftheweb/angularMobile.git`
 1. CD to the folder `cd angularMobile`
+1. Run `>npm config set strict-ssl false`
 1. Run `> npm install npm -g` 
 1. Run `> npm install` to install the project dependencies
 1. Install gulp.js via the Mac terminal or Gitbash on a PC `> npm install -g gulp`
