@@ -24,11 +24,12 @@ This repository has branches for each of the videos in the course. You can use t
 	- [node.js](http://nodejs.org/)
 	- [git](http://git-scm.com/)
 	- [gulp](http://gulpjs.com/)
-2. Clone this repository into your local machine using the terminal (mac) or Gitbash (PC) `> git clone https://github.com/planetoftheweb/angularMobile.git`
-3. CD to the folder `cd angularMobile`
-4. Run `> npm-install` to install the project dependencies
-5. Install gulp.js via the Mac terminal or Gitbash on a PC `> npm install -g gulp`
-5. Run the Gulp command `> gulp`
+1. Clone this repository into your local machine using the terminal (mac) or Gitbash (PC) `> git clone https://github.com/planetoftheweb/angularMobile.git`
+1. CD to the folder `cd angularMobile`
+1. Run `> npm install npm -g` 
+1. Run `> npm install` to install the project dependencies
+1. Install gulp.js via the Mac terminal or Gitbash on a PC `> npm install -g gulp`
+1. Run the Gulp command `> gulp`
 
 For more help setting up a comprehensive Gulp.js workflow, check out [Web Project Workflows with Gulp.js, Git, and Browserify](http://www.lynda.com/Web-Web-Design-tutorials/Web-Project-Workflows-Gulpjs-Git-Browserify/154416-2.html).
 
